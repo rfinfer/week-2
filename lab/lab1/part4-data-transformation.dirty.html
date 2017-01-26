@@ -63,7 +63,7 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
+    var data = bikeArrayDirty;
     var dataFiltered = []
     console.log(map)
 
@@ -73,28 +73,35 @@
     Start code to filter data
 
     ===================== */
-for (var i = 0; i < data.length; i++) {
-  // [-75.16374,
-  // 39.95378,
-  // "Municipal Services Building Plaza",
-  // 25]
-    var dock = data[i];
-    var long = dock[0]
+    for (var i = 0; i < data.length; i++) {
+        // [-75.16374,
+        // 39.95378,
+        // "Municipal Services Building Plaza",
+        // 25]
+        var station = data[i];
+        if(station.length!=4){
+            console.log("skipping station",station,i)
+            continue;
+        }
+        var long = station[0]
 
-    //swap lat and long
-    dock[0]=dock[1];
-    dock[1]=long;
+        //swap lat and long
+        station[0]=station[1];
+        station[1]=long;
+
+        var number = parseInt(station[3])
+        console.log(parseInt(station[3]))
+        //change the station string to just the number
+        station[3]= number
 
 
+        //var f = parseInt("40 years")
+        if (station[3]>=20) {
+          dataFiltered.push(station)
+        }
 
+      }
 
-    if (dock[3]>=20) {
-      dataFiltered.push(dock)
-    };
-
-
-
-}
 console.log(dataFiltered)
 
 

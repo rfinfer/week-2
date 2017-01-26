@@ -1,5 +1,5 @@
 // Bike Share data stored as array of arrays
-
+//need to rearrange lat and long
 var bikeArrayClean = [
   [
     -75.16374,

@@ -66,12 +66,38 @@
       //  works! You should see 'Success: true' if all goes well.
 
       /* Define your function here */
+      function myFunction(arrayValue) {
+        if (typeof arrayValue === 'string') {         // String case
+          yourSum = yourSum + arrayValue.length
+        } else if (typeof arrayValue === 'number') {  // Number case
+          yourSum = yourSum + arrayValue
+        } else {                                      // Otherwise
+          console.log("Not sure how to proceed with value:", arrayValue)
+        }
+      }
 
-      for (var i = 0; i < theArray.length, i++) { /* Inside the loop*/ }
+      for (var i = 0; i < theArray.length; i++) {
+        var arrayValue = theArray[i];
+        myFunction(arrayValue);
+     }
 
       /* =====================
 
       End code
+      Here's how to create a function:
+var list = function (friends) {
+  // Do something here
+}
+Here is how to loop over the keys of an object:
+for (var key in object) {
+  // Use object[key] to access
+  // the corresponding value
+}
+Here's how to use console.log:
+console.log("Printing a string");
+var myString = "Awesome!";
+console.log(myString);
+
 
       ===================== */
       console.log("Success: ", yourSum === 169)

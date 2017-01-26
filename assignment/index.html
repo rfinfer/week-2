@@ -52,13 +52,56 @@
       /* =====================
 
       Start code
+[
+{'first': 1, 'second': 44},
+{'first': 2, 'second': 12}]
 
+becomes
+
+[['first','second'],
+[1, 44],
+[2, 12]]
       ===================== */
+      var healthCentersArray = [["LNG","LAT","OBJECTID","NAME","ORGANIZATION","ZIP","PHONE","WEBSITE","DENTAL_PHONE","FULL_ADDRESS"]]
+
+
+      // for each health center
+      for(var i = 0; i<healthCenters.length; i++){
+          var healthCenterArray = []
+          var healthCenter = healthCenters[i]
+
+          //for each key in that health center
+          for (var key in healthCenter) {
+              console.log("our code",key);
+      	      healthCenterArray.push(healthCenter[key]);
+              console.log(healthCentersArray)
+          }
+          healthCentersArray.push(healthCenterArray)
+      }
+
+      console.log("healthcenterArray;", healthCenterArray)
+
 
       var jsonToCsv = function(json) { console.log(json); };
 
 
       var addMarkers = function(map) {};
+
+      for(var i=1; i<healthCentersArray.length;i++){
+          var lon = healthCentersArray[i][0];
+          var lat = healthCentersArray[i][1];
+          var popupText = healthCentersArray[i][3];
+          console.log("pop up text",popupText)
+          var markerLocation = new L.LatLng(lat, lon);
+          var marker = new L.Marker(markerLocation);
+
+          map.addLayer(marker);
+
+          marker.bindPopup(popupText);
+      }
+
+
+
 
       /* =====================
 

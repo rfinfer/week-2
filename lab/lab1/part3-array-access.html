@@ -69,15 +69,38 @@
       ext: 'png'
     }).addTo(map);
 
+    var restaurantData = [
+      [39.929993, -75.162888, "Gennaro's"],
+      [39.954421, -75.211547, "Abbyssinia"],
+      [39.954141, -75.210209, "Honest Toms"],
+      [39.928679, -75.163279, "South Philly Barbacoa"],
+      [39.947940, -75.222815, "Dock Street Brewing"]
+
+    ];
+    console.log(restaurantData)
+
+
     /* =====================
 
     Start code
 
     ===================== */
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    /*L.marker(restaurantData[0]).addTo(map);
+    L.marker(restaurantData[1]).addTo(map);
+    L.marker(restaurantData[2]).addTo(map);*/
+
+    for(var i=0; i<restaurantData.length;i++){
+        var marker =L.marker(restaurantData[i]).addTo(map);
+        marker.bindPopup(restaurantData[i][2]);
+
+    }
+
+
+
+
+
+
 
     /* =====================
 
